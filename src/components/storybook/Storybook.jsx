@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
-
 import "./Storybook.css";
 
 export const CarouselItem = ({ children, width }) => {
@@ -42,7 +41,7 @@ const Storybook = ({ children }) => {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndex(activeIndex + 1),
-    onSwipedRight: () => updateIndex(activeIndex - 1)
+    onSwipedRight: () => updateIndex(activeIndex - 1),
   });
 
   return (

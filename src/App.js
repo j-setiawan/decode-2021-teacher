@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/login/Login';
 import styled from 'styled-components';
 import OnlineUsers from "./components/onlineUsers/OnlineUser";
-import React, {useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import DateTime from './components/storybook/DateTime';
 import PollView from './components/poll-view/PollView';
 import { MessagingService } from "./MessagingService";
@@ -58,27 +58,27 @@ function App() {
 
   const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
   const footerButtons = ['Post Workbook'];
-  return loadingState 
-  ? (<div>loading messaging service...</div>) 
-  : (
-    <div className="App">
-      <MessagingServiceContext.Provider value={messagingService}>
-      <BrowserRouter>
-        <div>
-            <Switch>
-             <Route path="/" component={Login} exact/>
-             <Route path="/welcome" component={WelcomePage}/>
-             <Route path="/storybook" component={Storybook}/>
-            <Route component={Error}/>
-           </Switch>
-        </div> 
-      </BrowserRouter>
-      </MessagingServiceContext.Provider>
-      <Emotions students = {students} />
-      <div><PollView></PollView></div>
-    </div>
-    
-  );
+  return loadingState
+    ? (<div>loading messaging service...</div>)
+    : (
+      <div className="App">
+        <MessagingServiceContext.Provider value={messagingService}>
+          <BrowserRouter>
+            <div>
+              <Switch>
+                <Route path="/" component={Login} exact />
+                <Route path="/welcome" component={WelcomePage} />
+                <Route path="/storybook" component={Storybook} />
+                <Route component={Error} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+          <div><PollView></PollView></div>
+          <Emotions students={students} />
+        </MessagingServiceContext.Provider>
+      </div>
+
+    );
 }
 
 export default App;
@@ -101,7 +101,7 @@ const ButtonGroup = styled.div`
   flex-wrap: wrap;
 `;
 
-function ToggleGroup( {buttonTags} ) {
+function ToggleGroup({ buttonTags }) {
   const [active, setActive] = useState(buttonTags[0]);
   return (
     <ButtonGroup>
