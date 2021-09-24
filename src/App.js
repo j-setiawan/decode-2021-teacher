@@ -1,15 +1,17 @@
 import './App.css';
 import Questions from './components/polls/questions/Questions';
+import Emotions from "./components/emotions/Emotions";
 import Storybook, { CarouselItem } from './components/storybook/Storybook';
 import DateTime from './components/storybook/DateTime';
 import styled from 'styled-components';
 import React, { useState } from "react";
 
-const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
-const footerButtons = ['Post Workbook'];
-
-
 function App() {
+  const students = {
+    totalStudentsHappy: 1,
+    totalStudentsNeutral: 15,
+    totalStudentsSad: 23,
+  };
   const question = {
     pollId: "123",
     question: "What is the name of the hackathon?",
@@ -24,6 +26,9 @@ function App() {
       }
     ]
   }
+
+  const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
+  const footerButtons = ['Post Workbook'];
 
   return (
     <div className="App">
@@ -43,6 +48,7 @@ function App() {
         </CarouselItem>
       </Storybook>
       <ToggleGroup buttonTags = {footerButtons}/>
+      <Emotions students={students} />
     </div>
   );
 }
