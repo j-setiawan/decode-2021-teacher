@@ -2,9 +2,16 @@ import React from "react";
 import WorkBook from './WorkBook';
 import Student from './Student';
 import './WelcomePage.css'
+const welcomeInfo = {
+    userName: "Mrs Flanders",
+    workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
+    students: ["Mickey","Rickey", "Winny", "the", "Pooh"  ]
+  
+  }
 
-const WorkBookList = (props) => {
-  const { userName, workbooks, students} = props.props;
+
+const WelcomePage = (props) => {
+  const { userName, workbooks, students} = welcomeInfo;
   console.log(userName, workbooks, students);
   return (
     <div>
@@ -37,4 +44,4 @@ const WorkBookList = (props) => {
   );
 };
 
-export default WorkBookList;
+export default WelcomePage;
