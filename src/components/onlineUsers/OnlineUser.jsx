@@ -14,9 +14,9 @@ export default function OnlineUsers() {
 
   return (
     <div>
-      {onlineUsers.map((user, idx) => (
-        <p key={idx}>{user["name"]}</p>
-      ))}
+      {onlineUsers.map((user, idx) =>
+        !!user ? <p key={idx}>{user["name"]}</p> : undefined
+      )}
     </div>
   );
 }
