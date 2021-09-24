@@ -13,7 +13,6 @@ export default function OnlineUsers() {
 
   return (
     <div>
-      <h1>Online Users:</h1>
       {onlineUsers.map((user, idx) => (
         <p key={idx}>{user}</p>
       ))}
