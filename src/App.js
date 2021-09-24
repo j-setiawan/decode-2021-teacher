@@ -4,14 +4,14 @@ import Questions from './components/polls/questions/Questions';
 import WorkBookList from './Welcome Page/WelcomePage';
 import Storybook, { CarouselItem } from './components/storybook/Storybook';
 import Emotions from "./components/emotions/Emotions";
+import Login from './components/login/Login';
 import DateTime from './components/storybook/DateTime';
 import styled from 'styled-components';
 import React, { useState } from "react";
-
 const welcomeInfo = {
   userName: "Mrs Flanders",
   workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
-  students: ["Mickey","Rickey", "Vinny", "the", "Poo"  ]
+  students: ["Mickey", "Rickey", "Vinny", "the", "Poo"]
 
 }
 
@@ -41,23 +41,6 @@ function App() {
 
   return (
     <div className="App">
-      <WorkBookList props={welcomeInfo} />
-      <DateTime>
-      </DateTime>
-      <ToggleGroup buttonTags = {headerButtons}/>
-      <Storybook>
-        <CarouselItem>
-          <h3>Agenda for teacher </h3>
-        </CarouselItem>
-        <CarouselItem>
-          <h3>Second Slide Label</h3>
-        </CarouselItem>
-        <CarouselItem>
-        <h3>Third Slide Label</h3>
-        </CarouselItem>
-      </Storybook>
-      <ToggleGroup buttonTags = {footerButtons}/>
-      <Questions props={question} />
       <Emotions students = {students} />
     </div>
   );
