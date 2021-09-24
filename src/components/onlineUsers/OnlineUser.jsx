@@ -12,7 +12,7 @@ export default function OnlineUsers() {
     const connectToBroker = async () => await messageService.current.connect();
     const cleanup = () => messageService.current.disconnect();
     connectToBroker();
-    messageService.current.subscribeToTopic("foo", setOnlineUsers);
+    messageService.current.subscribeToTopic("onlineUsers", setOnlineUsers);
     return cleanup;
   }, [messageService]);
   return (
