@@ -62,10 +62,8 @@ function App() {
   : (
     <div className="App">
       <MessagingServiceContext.Provider value={messagingService}>
-      <Questions />
       <BrowserRouter>
         <div>
-          {/* <Navigation /> */}
             <Switch>
              <Route path="/" component={Login} exact/>
              <Route path="/welcome" component={WelcomePage}/>
@@ -74,21 +72,7 @@ function App() {
            </Switch>
         </div> 
       </BrowserRouter>
-      <Storybook>
-        <CarouselItem>
-          <h3>Dinosaurs</h3>
-        </CarouselItem>
-        <CarouselItem>
-          <h3>Second Slide Label</h3>
-        </CarouselItem>
-        <CarouselItem>
-          <h3>Third Slide Label</h3>
-        </CarouselItem>
-      </Storybook>
-      <Emotions students={students} />
-      <OnlineUsers />
       </MessagingServiceContext.Provider>
-      <Emotions students = {students} />
     </div>
   );
 }
