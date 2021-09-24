@@ -13,7 +13,7 @@ export default function OnlineUsers() {
 
   return (
     <div>
-      <div className="scrollingComponent">
+    <div style={{"overflow-y": "scroll", "max-height": "200px"}} className="scrollingComponent">
         {onlineUsers.map((user, idx) =>
           !!user ? <p key={idx}>{user["name"]}</p> : undefined
         )}
