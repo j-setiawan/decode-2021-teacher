@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Storybook, { CarouselItem } from "./Storybook";
 import StoryBookSidePanel from "../sidepanels/StoryBookSidePanel";
 import styled from "styled-components";
-import "./StoryBookContainer.css";
+import "./StorybookContainer.css";
 
 const ViewerImg = styled.img`
   max-height: 100%;
