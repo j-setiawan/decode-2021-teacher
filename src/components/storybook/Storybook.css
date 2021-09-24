@@ -7,7 +7,7 @@
     transition: transform 0.3s;
   }
   
-  .carousel-item {
+  .carousel-style {
     display: inline-flex;
     align-items: center;
     justify-content: center;

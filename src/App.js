@@ -1,12 +1,12 @@
-
-import './App.css';
-import Questions from './components/polls/questions/Questions';
-import WelcomePage from './components/Welcome Page/WelcomePage';
-import Storybook, { CarouselItem } from './components/storybook/Storybook';
+import "./App.css";
+import Questions from "./components/polls/questions/Questions";
+import WelcomePage from "./components/Welcome Page/WelcomePage";
+import StoryBookContainer from "./components/storybook/StorybookContainer";
+import WorkBook from "./components/Welcome Page/WorkBook";
 import Emotions from "./components/emotions/Emotions";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './components/login/Login';
-import styled from 'styled-components';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Login from "./components/login/Login";
+import styled from "styled-components";
 import OnlineUsers from "./components/onlineUsers/OnlineUser";
 import React, { useState, useEffect, useRef } from "react";
 import DateTime from './components/storybook/DateTime';
@@ -19,8 +19,8 @@ const messagingService = new MessagingService();
 const welcomeInfo = {
   userName: "Mrs Flanders",
   workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
-  students: ["Mickey", "Rickey", "Vinny", "the", "Poo"]
-}
+  students: ["Mickey", "Rickey", "Vinny", "the", "Poo"],
+};
 
 function App() {
   const messageService = useRef(messagingService);
@@ -30,61 +30,53 @@ function App() {
     const connectToBroker = async () => {
       await messageService.current.connect();
       setLoadingState(false);
-    }
+    };
     const cleanup = () => messageService.current.disconnect();
     connectToBroker();
     return cleanup;
   }, [messageService]);
 
-  const students = {
-    totalStudentsHappy: 1,
-    totalStudentsNeutral: 15,
-    totalStudentsSad: 23,
-  };
   const question = {
     pollId: "123",
     question: "What is the name of the hackathon?",
     choices: [
       {
         choiceId: "435",
-        description: "Decode"
+        description: "Decode",
       },
       {
         choiceId: "4356",
-        description: "Newcode"
-      }
-    ]
-  }
+        description: "Newcode",
+      },
+    ],
+  };
 
-  const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
-  const footerButtons = ['Post Workbook'];
-  return loadingState
-    ? (<div>loading messaging service...</div>)
-    : (
-      <div className="App">
-        <MessagingServiceContext.Provider value={messagingService}>
-          <BrowserRouter>
-            <div>
-              <Switch>
-                <Route path="/" component={Login} exact />
-                <Route path="/welcome" component={WelcomePage} />
-                <Route path="/storybook" component={Storybook} />
-                <Route component={Error} />
-              </Switch>
-            </div>
-          </BrowserRouter>
-          <div><PollView></PollView></div>
-          <Emotions students={students} />
-        </MessagingServiceContext.Provider>
-      </div>
-
-    );
+  const headerButtons = ["Start Lesson Plan", "End Lesson Plan"];
+  const footerButtons = ["Post Workbook"];
+  return loadingState ? (
+    <div>loading messaging service...</div>
+  ) : (
+    <div className="App">
+      <MessagingServiceContext.Provider value={messagingService}>
+        <BrowserRouter>
+          <div>
+            <Switch>
+              <Route path="/" component={Login} exact />
+              <Route path="/welcome" component={WelcomePage} />
+              <Route path="/workbook" component={WorkBook} />
+              <Route path="/storybook" component={StoryBookContainer} />
+              <Route component={Error} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </MessagingServiceContext.Provider>
+    </div>
+  );
 }
 
 export default App;
 
-const Button = styled.button`
-`;
+const Button = styled.button``;
 
 const ButtonToggle = styled(Button)`
   opacity: 0.6;
@@ -105,7 +97,7 @@ function ToggleGroup({ buttonTags }) {
   const [active, setActive] = useState(buttonTags[0]);
   return (
     <ButtonGroup>
-      {buttonTags.map(type => (
+      {buttonTags.map((type) => (
         <ButtonToggle
           key={type}
           active={active === type}

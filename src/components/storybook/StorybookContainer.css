@@ -1,0 +1,4 @@
+.StoryBookContainer {
+  display: flex;
+  flex-direction: row;
+}
