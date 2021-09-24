@@ -36,11 +36,6 @@ function App() {
     return cleanup;
   }, [messageService]);
 
-  const students = {
-    totalStudentsHappy: 1,
-    totalStudentsNeutral: 15,
-    totalStudentsSad: 23,
-  };
   const question = {
     pollId: "123",
     question: "What is the name of the hackathon?",
@@ -58,8 +53,8 @@ function App() {
 
   const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
   const footerButtons = ['Post Workbook'];
-  return loadingState 
-  ? (<div>loading messaging service...</div>) 
+  return loadingState
+  ? (<div>loading messaging service...</div>)
   : (
     <div className="App">
       <MessagingServiceContext.Provider value={messagingService}>
@@ -71,13 +66,13 @@ function App() {
              <Route path="/storybook" component={Storybook}/>
             <Route component={Error}/>
            </Switch>
-        </div> 
+        </div>
       </BrowserRouter>
+      <Emotions />
       </MessagingServiceContext.Provider>
-      <Emotions students = {students} />
       <div><PollView></PollView></div>
     </div>
-    
+
   );
 }
 
