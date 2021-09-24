@@ -34,7 +34,7 @@ function App() {
           <h3>Third Slide Label</h3>
         </CarouselItem>
       </Storybook>
-      <Questions props={question} />
+      {/* <Questions props={question} /> */}
       <Emotions students={students} />
     </div>
   );
