@@ -6,7 +6,7 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState(false);
   const handleSubmit = () => {
-    if (email !== "admin@solace.com" || password !== "admin") setError(true);
+    if (email !== "teacher@school.com" || password !== "admin") setError(true);
     //set routing in the else component
   };
   return (
