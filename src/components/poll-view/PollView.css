@@ -1,0 +1,38 @@
+.main-div {
+    width: 500px;
+}
+
+.box {
+    width: 331px;
+    height: 34px;
+    left: 1067px;
+    top: 789px;
+    margin: 5px;
+    border: 1px solid #5D5FEF;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.box-text{
+    position: relative;
+    padding-top:5px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.button-create-poll {
+    padding-left: 35px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(0, 0, 0, 0.5);
+}

@@ -7,6 +7,7 @@ import Emotions from "./components/emotions/Emotions";
 import DateTime from './components/storybook/DateTime';
 import styled from 'styled-components';
 import React, { useState } from "react";
+import PollView from './components/poll-view/PollView';
 
 const welcomeInfo = {
   userName: "Mrs Flanders",
@@ -59,7 +60,9 @@ function App() {
       <ToggleGroup buttonTags = {footerButtons}/>
       <Questions props={question} />
       <Emotions students = {students} />
+      <div><PollView></PollView></div>
     </div>
+    
   );
 }
 
