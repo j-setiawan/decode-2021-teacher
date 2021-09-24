@@ -21,7 +21,7 @@ const Questions = (props) => {
 
   const submitClick = () => {
     const output = {
-      id: uuidv4(),
+      pollId: uuidv4(),
       question,
       responses,
     };
