@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { MessagingServiceContext } from "../../App";
 
 import "./Storybook.css";
 
@@ -13,6 +13,7 @@ export const CarouselItem = ({ children, width }) => {
 
 const Storybook = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const messagingService = useContext(MessagingServiceContext);
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
@@ -20,6 +21,8 @@ const Storybook = ({ children }) => {
     } else if (newIndex >= React.Children.count(children)) {
       newIndex = 0;
     }
+
+    messagingService.publishMessage("workbook/slides", newIndex);
 
     setActiveIndex(newIndex);
   };
