@@ -3,36 +3,35 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Storybook, { CarouselItem } from "./Storybook";
 import StoryBookSidePanel from "../sidepanels/StoryBookSidePanel";
 import styled from "styled-components";
+import "./StoryBookContainer.css";
 
 const ViewerImg = styled.img`
-        max-height: 100%;
-        max-width: 100%;
-    `;
+  max-height: 100%;
+  max-width: 100%;
+`;
 
-const StorybookContainer = (props) => {
+const StoryBookContainer = (props) => {
   const name = props.name;
   console.log(name);
   return (
-    <div
-      className="StoryBookContainer"
-    >
+    <div className="StoryBookContainer">
       <Storybook>
         <CarouselItem>
-            <ViewerImg className="slide-image" src={`/Slide1.png`} alt=""/>
+          <ViewerImg className="slide-image" src={`/Slide1.png`} alt="" />
         </CarouselItem>
         <CarouselItem>
-            <ViewerImg className="slide-image" src={`/Slide2.png`} alt=""/>
+          <ViewerImg className="slide-image" src={`/Slide2.png`} alt="" />
         </CarouselItem>
         <CarouselItem>
-            <ViewerImg className="slide-image" src={`/Slide3.png`} alt=""/>
+          <ViewerImg className="slide-image" src={`/Slide3.png`} alt="" />
         </CarouselItem>
         <CarouselItem>
-            <ViewerImg className="slide-image" src={`/Slide4.png`} alt=""/>
+          <ViewerImg className="slide-image" src={`/Slide4.png`} alt="" />
         </CarouselItem>
       </Storybook>
-      <StoryBookSidePanel /> 
+      <StoryBookSidePanel />
     </div>
   );
 };
 
-export default StorybookContainer;
+export default StoryBookContainer;
