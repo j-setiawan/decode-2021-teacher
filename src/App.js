@@ -1,5 +1,7 @@
 import "./App.css";
 import Emotions from "./components/emotions/Emotions";
+import Questions from "./components/polls/questions/Questions";
+import Storybook, { CarouselItem } from "./components/storybook/Storybook";
 
 function App() {
   const students = {
@@ -9,6 +11,18 @@ function App() {
   };
   return (
     <div className="App">
+      <Questions />
+      <Storybook>
+        <CarouselItem>
+          <h3>Dinosaurs</h3>
+        </CarouselItem>
+        <CarouselItem>
+          <h3>Second Slide Label</h3>
+        </CarouselItem>
+        <CarouselItem>
+          <h3>Third Slide Label</h3>
+        </CarouselItem>
+      </Storybook>
       <Emotions students={students} />
     </div>
   );
