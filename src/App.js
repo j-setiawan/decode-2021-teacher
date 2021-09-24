@@ -1,5 +1,6 @@
 import "./App.css";
 import Emotions from "./components/emotions/Emotions";
+import OnlineUsers from "./components/onlineUsers/OnlineUser";
 import Questions from "./components/polls/questions/Questions";
 import Storybook, { CarouselItem } from "./components/storybook/Storybook";
 
@@ -24,6 +25,7 @@ function App() {
         </CarouselItem>
       </Storybook>
       <Emotions students={students} />
+      <OnlineUsers />
     </div>
   );
 }
