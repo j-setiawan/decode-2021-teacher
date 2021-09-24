@@ -1,13 +1,17 @@
 import React from "react";
 import "./Login.css";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState(false);
   const handleSubmit = () => {
-    if (email !== "teacher@school.com" || password !== "admin") setError(true);
+    if (email !== "teacher@school.com" || password !== "admin") setError(true)
     //set routing in the else component
+    else
+      history.push('/welcome');
   };
   return (
     <div>
