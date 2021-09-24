@@ -12,7 +12,7 @@ export default function Emotions() {
     const [totalEmotes, setTotalEmotes] = useState(0);
     const messageService = useContext(MessagingServiceContext);
     useEffect(() => {
-        messageService.subscribeToTopic("emotes", (msg) => {
+        messageService.subscribeToTopic("workbook/slide/emote", (msg) => {
             const m = msg.toString();
             if (m === "0") {
                 setHappy((prev) => prev + 1);
