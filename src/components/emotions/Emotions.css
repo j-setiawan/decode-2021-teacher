@@ -1,0 +1,19 @@
+.Emotions {
+}
+
+.Emotions-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Emotions-emoji {
+  width: 30px;
+  height: 30px;
+}
+
+.Emotions-emoji img {
+  height: 30px;
+  width: 30px;
+}
