@@ -35,11 +35,6 @@ function App() {
     return cleanup;
   }, [messageService]);
 
-  const students = {
-    totalStudentsHappy: 1,
-    totalStudentsNeutral: 15,
-    totalStudentsSad: 23,
-  };
   const question = {
     pollId: "123",
     question: "What is the name of the hackathon?",
