@@ -27,11 +27,8 @@ const Storybook = ({ children }) => {
     setActiveIndex(newIndex);
   };
 
-
   return (
-    <div
-      className="carousel"
-    >
+    <div className="carousel">
       <div
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
