@@ -19,6 +19,8 @@ import Login from './components/login/Login';
 import DateTime from './components/storybook/DateTime';
 import styled from 'styled-components';
 import React, { useState } from "react";
+import PollView from './components/poll-view/PollView';
+
 const welcomeInfo = {
   userName: "Mrs Flanders",
   workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
@@ -96,7 +98,9 @@ function App() {
       <OnlineUsers />
       </MessagingServiceContext.Provider>
       <Emotions students = {students} />
+      <div><PollView></PollView></div>
     </div>
+    
   );
 }
 
