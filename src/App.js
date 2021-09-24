@@ -2,8 +2,6 @@ import './App.css';
 import Questions from './components/polls/questions/Questions';
 
 
-
-
 function App() {
   const question = {
     pollId: "123",
