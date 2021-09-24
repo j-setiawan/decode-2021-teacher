@@ -6,7 +6,7 @@ export default function OnlineUsers() {
   const [onlineUsers, setOnlineUsers] = useState([]);
   const messageService = useContext(MessagingServiceContext);
   useEffect(() => {
-    messageService.subscribeToTopic("onlineUsers", (receviedMsg) => {
+    messageService.subscribeToTopic("user", (receviedMsg) => {
       setOnlineUsers((oldArray) => [...oldArray, receviedMsg]);
     });
   }, [messageService]);
