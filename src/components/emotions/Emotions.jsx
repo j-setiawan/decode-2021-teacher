@@ -5,11 +5,10 @@ import SentimentSatisfied from "../../static/sentiment_satisfied.svg";
 import SentimentNeutral from "../../static/sentiment_neutral.svg";
 import SentimentDissatisfied from "../../static/sentiment_dissatisfied.svg";
 const Emotions = (props) => {
-  // const totalStudents =
-  //   props.students.totalStudentsHappy +
-  //   props.students.totalStudentsNeutral +
-  //   props.students.totalStudentsSad;
-  const totalStudents = 50;
+  const totalStudents =
+    props.students.totalStudentsHappy +
+    props.students.totalStudentsNeutral +
+    props.students.totalStudentsSad;
   return (
     <div className="Emotions">
       <div className="Emotions-row">
