@@ -2,6 +2,12 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Storybook, { CarouselItem } from "./Storybook";
 import StoryBookSidePanel from "../sidepanels/StoryBookSidePanel";
+import styled from "styled-components";
+
+const ViewerImg = styled.img`
+        max-height: 100%;
+        max-width: 100%;
+    `;
 
 const StorybookContainer = (props) => {
   const name = props.name;
@@ -12,13 +18,16 @@ const StorybookContainer = (props) => {
     >
       <Storybook>
         <CarouselItem>
-          <h3>Dinosaurs</h3>
+            <ViewerImg className="slide-image" src={`/Slide1.png`} alt=""/>
         </CarouselItem>
         <CarouselItem>
-          <h3>Second Slide Label</h3>
+            <ViewerImg className="slide-image" src={`/Slide2.png`} alt=""/>
         </CarouselItem>
         <CarouselItem>
-          <h3>Third Slide Label</h3>
+            <ViewerImg className="slide-image" src={`/Slide3.png`} alt=""/>
+        </CarouselItem>
+        <CarouselItem>
+            <ViewerImg className="slide-image" src={`/Slide4.png`} alt=""/>
         </CarouselItem>
       </Storybook>
       <StoryBookSidePanel /> 
