@@ -11,6 +11,7 @@
     border: 1px solid #5D5FEF;
     box-sizing: border-box;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .box-text{
@@ -25,6 +26,7 @@
 }
 
 .button-create-poll {
+    cursor: pointer;
     padding-left: 35px;
     padding: 0;
     border: none;
