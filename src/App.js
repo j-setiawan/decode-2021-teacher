@@ -1,22 +1,41 @@
 
 import './App.css';
 import Questions from './components/polls/questions/Questions';
-import WorkBookList from './Welcome Page/WelcomePage';
+import WelcomePage from './components/Welcome Page/WelcomePage';
 import Storybook, { CarouselItem } from './components/storybook/Storybook';
 import Emotions from "./components/emotions/Emotions";
-import DateTime from './components/storybook/DateTime';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './components/login/Login';
 import styled from 'styled-components';
-import React, { useState } from "react";
+import OnlineUsers from "./components/onlineUsers/OnlineUser";
+import React, {useState, useEffect, useRef } from "react";
+import DateTime from './components/storybook/DateTime';
 import PollView from './components/poll-view/PollView';
+import { MessagingService } from "./MessagingService";
+
+export const MessagingServiceContext = React.createContext();
+const messagingService = new MessagingService();
 
 const welcomeInfo = {
   userName: "Mrs Flanders",
   workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
-  students: ["Mickey","Rickey", "Vinny", "the", "Poo"  ]
-
+  students: ["Mickey", "Rickey", "Vinny", "the", "Poo"]
 }
 
 function App() {
+  const messageService = useRef(messagingService);
+  const [loadingState, setLoadingState] = useState(true);
+
+  useEffect(() => {
+    const connectToBroker = async () => {
+      await messageService.current.connect();
+      setLoadingState(false);
+    }
+    const cleanup = () => messageService.current.disconnect();
+    connectToBroker();
+    return cleanup;
+  }, [messageService]);
+
   const students = {
     totalStudentsHappy: 1,
     totalStudentsNeutral: 15,
@@ -39,26 +58,22 @@ function App() {
 
   const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
   const footerButtons = ['Post Workbook'];
-
-  return (
+  return loadingState 
+  ? (<div>loading messaging service...</div>) 
+  : (
     <div className="App">
-      <WorkBookList props={welcomeInfo} />
-      <DateTime>
-      </DateTime>
-      <ToggleGroup buttonTags = {headerButtons}/>
-      <Storybook>
-        <CarouselItem>
-          <h3>Agenda for teacher </h3>
-        </CarouselItem>
-        <CarouselItem>
-          <h3>Second Slide Label</h3>
-        </CarouselItem>
-        <CarouselItem>
-        <h3>Third Slide Label</h3>
-        </CarouselItem>
-      </Storybook>
-      <ToggleGroup buttonTags = {footerButtons}/>
-      <Questions props={question} />
+      <MessagingServiceContext.Provider value={messagingService}>
+      <BrowserRouter>
+        <div>
+            <Switch>
+             <Route path="/" component={Login} exact/>
+             <Route path="/welcome" component={WelcomePage}/>
+             <Route path="/storybook" component={Storybook}/>
+            <Route component={Error}/>
+           </Switch>
+        </div> 
+      </BrowserRouter>
+      </MessagingServiceContext.Provider>
       <Emotions students = {students} />
       <div><PollView></PollView></div>
     </div>
