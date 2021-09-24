@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import WorkBookList from './Welcome Page/WelcomePage';
+const welcomeInfo = {
+  userName: "Mrs Flanders",
+  workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
+  students: ["Mickey","Rickey", "Vinny", "the", "Poo"  ]
+
+}
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <WorkBookList props={welcomeInfo} />
+
     </div>
   );
 }
