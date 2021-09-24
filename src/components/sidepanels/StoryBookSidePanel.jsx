@@ -16,7 +16,6 @@ const StoryBookSidePanel = (props) => {
         <div className="StoryBookSidePanel-headerItem">Messages</div>
         <div className="StoryBookSidePanel-headerItem">Review</div>
       </div>
-      <div>HandRaised +1</div>
       <Emotions students={students} />
       <OnlineUsers></OnlineUsers>
       <PollView></PollView>
