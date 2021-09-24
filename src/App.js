@@ -1,26 +1,15 @@
-import './App.css';
-import Questions from './components/polls/questions/Questions';
-
+import "./App.css";
+import Emotions from "./components/emotions/Emotions";
 
 function App() {
-  const question = {
-    pollId: "123",
-    question: "What is the name of the hackathon?",
-    choices: [
-      {
-        choiceId: "435",
-        description: "Decode"
-      },
-      {
-        choiceId: "4356",
-        description: "Newcode"
-      }
-    ]
-  }
-
+  const students = {
+    totalStudentsHappy: 1,
+    totalStudentsNeutral: 15,
+    totalStudentsSad: 23,
+  };
   return (
     <div className="App">
-      <Questions props={question} />
+      <Emotions students={students} />
     </div>
   );
 }
