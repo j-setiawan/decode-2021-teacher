@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useSwipeable } from "react-swipeable";
+import React, { useState } from "react";
 
 
 import "./Storybook.css";
@@ -14,7 +13,6 @@ export const CarouselItem = ({ children, width }) => {
 
 const Storybook = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
@@ -26,31 +24,10 @@ const Storybook = ({ children }) => {
     setActiveIndex(newIndex);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!paused) {
-        updateIndex(activeIndex + 1);
-      }
-    }, 3000);
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  });
-
-  const handlers = useSwipeable({
-    onSwipedLeft: () => updateIndex(activeIndex + 1),
-    onSwipedRight: () => updateIndex(activeIndex - 1)
-  });
 
   return (
     <div
-      {...handlers}
       className="carousel"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <div
         className="inner"
