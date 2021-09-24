@@ -7,6 +7,7 @@ export default function OnlineUsers() {
   const messageService = useContext(MessagingServiceContext);
   useEffect(() => {
     messageService.subscribeToTopic("user", (receviedMsg) => {
+      console.debug("user message received");
       setOnlineUsers((oldArray) => [...oldArray, receviedMsg]);
     });
   }, [messageService]);
@@ -14,7 +15,7 @@ export default function OnlineUsers() {
   return (
     <div>
       {onlineUsers.map((user, idx) => (
-        <p key={idx}>{user}</p>
+        <p key={idx}>{user["name"]}</p>
       ))}
     </div>
   );
