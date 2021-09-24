@@ -1,7 +1,9 @@
-import "./App.css";
-import Questions from "./components/polls/questions/Questions";
-import WelcomePage from "./components/Welcome Page/WelcomePage";
-import Storybook, { CarouselItem } from "./components/storybook/Storybook";
+
+import './App.css';
+import Questions from './components/polls/questions/Questions';
+import WelcomePage from './components/Welcome Page/WelcomePage';
+import StorybookContainer from './components/storybook/StorybookContainer';
+import WorkBook from './components/Welcome Page/WorkBook';
 import Emotions from "./components/emotions/Emotions";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/login/Login";
@@ -60,13 +62,14 @@ function App() {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route path="/" component={Login} exact />
-              <Route path="/welcome" component={WelcomePage} />
-              <Route path="/storybook" component={Storybook} />
-              <Route component={Error} />
-            </Switch>
-          </div>
-        </BrowserRouter>
+             <Route path="/" component={Login} exact/>
+             <Route path="/welcome" component={WelcomePage}/>
+             <Route path="/workbook" component={WorkBook}/>
+             <Route path="/storybook" component={StorybookContainer}/>
+            <Route component={Error}/>
+           </Switch>
+        </div> 
+      </BrowserRouter>
       </MessagingServiceContext.Provider>
     </div>
   );
