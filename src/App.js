@@ -4,13 +4,14 @@ import Questions from './components/polls/questions/Questions';
 import WorkBookList from './Welcome Page/WelcomePage';
 import Storybook, { CarouselItem } from './components/storybook/Storybook';
 import Emotions from "./components/emotions/Emotions";
+import Login from './components/login/Login';
 
 
 
 const welcomeInfo = {
   userName: "Mrs Flanders",
   workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
-  students: ["Mickey","Rickey", "Vinny", "the", "Poo"  ]
+  students: ["Mickey", "Rickey", "Vinny", "the", "Poo"]
 
 }
 
@@ -22,7 +23,7 @@ function App() {
   };
   return (
     <div className="App">
-      <WorkBookList props={welcomeInfo} />
+      {/* <WorkBookList props={welcomeInfo} />
       <Storybook>
         <CarouselItem>
           <h3>Dinosaurs</h3>
@@ -35,7 +36,8 @@ function App() {
         </CarouselItem>
       </Storybook>
       <Questions props={question} />
-      <Emotions students={students} />
+      <Emotions students={students} /> */}
+      <Login />
     </div>
   );
 }
