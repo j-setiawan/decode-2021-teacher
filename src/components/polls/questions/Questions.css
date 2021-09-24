@@ -58,5 +58,17 @@ input {
 }
 
 .createPoll {
+  width: 120px;
   margin-bottom: 40px;
+}
+
+.pollOptions {
+  text-align: center;
+}
+
+.polls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
