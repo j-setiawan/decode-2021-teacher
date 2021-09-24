@@ -3,6 +3,7 @@ import './App.css';
 import Questions from './components/polls/questions/Questions';
 import WelcomePage from './components/Welcome Page/WelcomePage';
 import Storybook, { CarouselItem } from './components/storybook/Storybook';
+import WorkBook from './components/Welcome Page/WorkBook';
 import Emotions from "./components/emotions/Emotions";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/login/Login';
@@ -68,7 +69,7 @@ function App() {
             <Switch>
              <Route path="/" component={Login} exact/>
              <Route path="/welcome" component={WelcomePage}/>
-             <Route path="/storybook" component={Storybook}/>
+             <Route path="/workbook" component={WorkBook}/>
             <Route component={Error}/>
            </Switch>
         </div> 

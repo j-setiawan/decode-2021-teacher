@@ -6,7 +6,7 @@ import "./Storybook.css";
 
 export const CarouselItem = ({ children, width }) => {
   return (
-    <div className="carousel-item" style={{ width: width }}>
+    <div className="carousel-style" style={{ width: width }}>
       {children}
     </div>
   );
