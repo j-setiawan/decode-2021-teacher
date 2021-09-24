@@ -1,0 +1,31 @@
+.loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 30vh;
+}
+
+.inputHeading {
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.loginButton {
+  margin-top: 20px;
+  height: 42px;
+  width: 423px;
+  border-radius: 4px;
+  background: #5d5fef;
+  color: white;
+}
+
+.loginInput {
+  height: 41px;
+  width: 421px;
+  border-radius: 4px;
+}
+
+.schoolName {
+  margin: 0 auto;
+}
