@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import Questions from './components/polls/questions/Questions';
 import WorkBookList from './Welcome Page/WelcomePage';
 const welcomeInfo = {
   userName: "Mrs Flanders",
@@ -8,12 +8,26 @@ const welcomeInfo = {
 
 }
 
-
 function App() {
+  const question = {
+    pollId: "123",
+    question: "What is the name of the hackathon?",
+    choices: [
+      {
+        choiceId: "435",
+        description: "Decode"
+      },
+      {
+        choiceId: "4356",
+        description: "Newcode"
+      }
+    ]
+  }
+
   return (
     <div className="App">
         <WorkBookList props={welcomeInfo} />
-
+      {/* <Questions props={question} /> */}
     </div>
   );
 }
