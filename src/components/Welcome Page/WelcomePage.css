@@ -4,9 +4,10 @@
 
 .flex-child {
     flex: 1;
-    border: 2px solid rgb(27, 202, 255);
-    padding: 2rem;
-    margin: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }  
 
 .flex-child:first-child {
