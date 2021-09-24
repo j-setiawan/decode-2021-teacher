@@ -4,22 +4,17 @@ import Questions from './components/polls/questions/Questions';
 import WelcomePage from './components/Welcome Page/WelcomePage';
 import Storybook, { CarouselItem } from './components/storybook/Storybook';
 import Emotions from "./components/emotions/Emotions";
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './components/login/Login';
+import styled from 'styled-components';
 import OnlineUsers from "./components/onlineUsers/OnlineUser";
-import Questions from "./components/polls/questions/Questions";
-import Storybook, { CarouselItem } from "./components/storybook/Storybook";
 import React, {useState, useEffect, useRef } from "react";
-
+import DateTime from './components/storybook/DateTime';
+import PollView from './components/poll-view/PollView';
 import { MessagingService } from "./MessagingService";
 
 export const MessagingServiceContext = React.createContext();
 const messagingService = new MessagingService();
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from './components/login/Login';
-import DateTime from './components/storybook/DateTime';
-import styled from 'styled-components';
-import React, { useState } from "react";
-import PollView from './components/poll-view/PollView';
 
 const welcomeInfo = {
   userName: "Mrs Flanders",
@@ -46,12 +41,6 @@ function App() {
     totalStudentsNeutral: 15,
     totalStudentsSad: 23,
   };
-  return loadingState 
-  ? (<div>loading messaging service...</div>) 
-  : (
-    <div className="App">
-      <MessagingServiceContext.Provider value={messagingService}>
-      <Questions />
   const question = {
     pollId: "123",
     question: "What is the name of the hackathon?",
@@ -69,12 +58,13 @@ function App() {
 
   const headerButtons = ['Start Lesson Plan', 'End Lesson Plan'];
   const footerButtons = ['Post Workbook'];
-
-  return (
+  return loadingState 
+  ? (<div>loading messaging service...</div>) 
+  : (
     <div className="App">
+      <MessagingServiceContext.Provider value={messagingService}>
       <BrowserRouter>
         <div>
-          {/* <Navigation /> */}
             <Switch>
              <Route path="/" component={Login} exact/>
              <Route path="/welcome" component={WelcomePage}/>
@@ -83,19 +73,6 @@ function App() {
            </Switch>
         </div> 
       </BrowserRouter>
-      <Storybook>
-        <CarouselItem>
-          <h3>Dinosaurs</h3>
-        </CarouselItem>
-        <CarouselItem>
-          <h3>Second Slide Label</h3>
-        </CarouselItem>
-        <CarouselItem>
-          <h3>Third Slide Label</h3>
-        </CarouselItem>
-      </Storybook>
-      <Emotions students={students} />
-      <OnlineUsers />
       </MessagingServiceContext.Provider>
       <Emotions students = {students} />
       <div><PollView></PollView></div>
