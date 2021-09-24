@@ -24,7 +24,7 @@ const Login = () => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        {/* <h5 className="inputHeading">Password*</h5>
+        <h5 className="inputHeading">Password*</h5>
         <input
           type="password"
           className="loginInput"
@@ -34,7 +34,7 @@ const Login = () => {
         <button onClick={handleSubmit} className="loginButton">
           Login
         </button>
-        {error ? <div>Invalid credentials</div> : undefined} */}
+        {error ? <div>Invalid credentials</div> : undefined}
       </div>
     </div>
   );
