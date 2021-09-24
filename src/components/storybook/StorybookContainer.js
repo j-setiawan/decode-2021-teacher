@@ -2,14 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Storybook, { CarouselItem } from "./Storybook";
 import StoryBookSidePanel from "../sidepanels/StoryBookSidePanel";
+import "./StoryBookContainer.css";
 
-const StorybookContainer = (props) => {
+const StoryBookContainer = (props) => {
   const name = props.name;
   console.log(name);
   return (
-    <div
-      className="StoryBookContainer"
-    >
+    <div className="StoryBookContainer">
       <Storybook>
         <CarouselItem>
           <h3>Dinosaurs</h3>
@@ -21,9 +20,9 @@ const StorybookContainer = (props) => {
           <h3>Third Slide Label</h3>
         </CarouselItem>
       </Storybook>
-      <StoryBookSidePanel /> 
+      <StoryBookSidePanel />
     </div>
   );
 };
 
-export default StorybookContainer;
+export default StoryBookContainer;
