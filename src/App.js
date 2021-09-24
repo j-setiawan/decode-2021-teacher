@@ -7,14 +7,15 @@ import Emotions from "./components/emotions/Emotions";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/login/Login';
 import styled from 'styled-components';
-
 import OnlineUsers from "./components/onlineUsers/OnlineUser";
 import React, {useState, useEffect, useRef } from "react";
-
+import DateTime from './components/storybook/DateTime';
+import PollView from './components/poll-view/PollView';
 import { MessagingService } from "./MessagingService";
 
 export const MessagingServiceContext = React.createContext();
 const messagingService = new MessagingService();
+
 const welcomeInfo = {
   userName: "Mrs Flanders",
   workbooks: ["Dinosaurs", "Dinosaurs Eggs", "Dinosaur Train", "Dino Run!"],
@@ -73,7 +74,10 @@ function App() {
         </div> 
       </BrowserRouter>
       </MessagingServiceContext.Provider>
+      <Emotions students = {students} />
+      <div><PollView></PollView></div>
     </div>
+    
   );
 }
 
