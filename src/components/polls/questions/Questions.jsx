@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { UIStore } from "../../../store";
+import { v4 as uuidv4 } from "uuid";
 
 const Questions = (props) => {
   const [question, setQuestion] = useState("");
@@ -9,6 +10,7 @@ const Questions = (props) => {
 
   const submitClick = () => {
     const output = {
+      id: uuidv4(),
       question,
       response,
       response_2,
