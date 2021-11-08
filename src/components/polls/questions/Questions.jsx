@@ -6,83 +6,91 @@ import "./Questions.css";
 import Answers from "../answers/Answers";
 
 const Questions = () => {
-  const [question, setQuestion] = useState("");
-  const [response, setResponse] = useState("");
-  const [responses, setResponses] = useState([]);
-  const [isDisplayed, setIsDisplayed] = useState(false);
+	const [question, setQuestion] = useState("What do you eat?");
+	const [responseA, setResponseA] = useState("Meat, like a Carnivore");
+	const [responseB, setResponseB] = useState("Veggies, like a Herbivore");
+	const [responseC, setResponseC] = useState("Both, like an Omnivore");
+	const [responses, setResponses] = useState([]);
+	const [isDisplayed, setIsDisplayed] = useState(false);
 
-  const messageService = useContext(MessagingServiceContext);
+	const messageService = useContext(MessagingServiceContext);
 
-  const submitClick = () => {
-    const output = {
-      pollId: uuidv4(),
-      question,
-      responses,
-    };
+	const submitClick = () => {
+		const output = {
+			pollId: uuidv4(),
+			question,
+			responses,
+		};
 
-    messageService.publishMessage("workbook/poll", output);
+		messageService.publishMessage("workbook/poll", output);
 
-    //store the poll
-    UIStore.update((s) => {
-      s.questionBank.push(output);
-      console.log(UIStore);
-    });
-    setIsDisplayed(true);
-  };
+		//store the poll
+		UIStore.update((s) => {
+			s.questionBank.push(output);
+		});
+		setIsDisplayed(true);
+	};
 
-  const addPollItem = () => {
-    setResponses((oldArray) => [...oldArray, response]);
-    setResponse("");
-  };
-
-  const deleteResponse = (response) => {
-    const newArray = responses.filter((r) => r !== response);
-    setResponses(newArray);
-  };
-  return (
-    <div className="questionCard">
-      {isDisplayed ? (
-        <Answers question={question} responses={responses} />
-      ) : undefined}
-      <div className="first">
-        <h3>Enter your question</h3>
-        <input
-          type="text"
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Question"
-        />
-      </div>
-      <div className="second">
-        <h3>Enter your poll option</h3>
-        <div className="inner-second">
-          <input
-            type="text"
-            placeholder="Poll option"
-            onChange={(e) => setResponse(e.target.value)}
-            value={response}
-          />
-          <button onClick={addPollItem}>Add Poll Item</button>
-        </div>
-      </div>
-
-      <div className="polls">
-        <div className="response">
-          <h3 className="pollOptions">Poll Options</h3>
-          {responses.map((response, idx) => (
-            <div key={idx} className="pollOption">
-              <p>{response}</p>
-              <button onClick={() => deleteResponse(response)}>Delete</button>
-            </div>
-          ))}
-        </div>
-
-        <div className="button">
-          <button className="createPoll" onClick={submitClick}>
-            Create Poll
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="flex-column">
+			{isDisplayed ? (
+				<Answers question={question} responses={responses} a={responseA} b={responseB} c={responseC} />
+			) : undefined}
+			{!isDisplayed && (
+				<>
+					<strong>New Poll</strong>
+					<section>
+						<input
+							type="text"
+							onChange={(e) => setQuestion(e.target.value)}
+							placeholder="Type your question here"
+							value={question}
+						/>
+					</section>
+					<div className="flex-column">
+						<section className="flex-row">
+							<strong className="mr8">A:</strong>
+							<div className="flex">
+								<input
+									type="text"
+									placeholder="Poll option"
+									onChange={(e) => setResponseA(e.target.value)}
+									value={responseA}
+								/>
+							</div>
+						</section>
+						<section className="flex-row">
+							<strong className="mr8">B:</strong>
+							<div className="flex">
+								<input
+									type="text"
+									placeholder="Poll option"
+									onChange={(e) => setResponseB(e.target.value)}
+									value={responseB}
+								/>
+							</div>
+						</section>
+						<section className="flex-row">
+							<strong className="mr8">C:</strong>
+							<div className="flex">
+								<input
+									type="text"
+									placeholder="Poll option"
+									onChange={(e) => setResponseC(e.target.value)}
+									value={responseC}
+								/>
+							</div>
+						</section>
+					</div>
+					<section className="flex-row">
+						<div className="flex"></div>
+						<button className="createPoll" onClick={submitClick}>
+							Create Poll
+						</button>
+					</section>
+				</>
+			)}
+		</div>
+	);
 };
 export default Questions;

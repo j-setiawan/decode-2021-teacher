@@ -1,4 +1,9 @@
 .carousel {
+    
+  }
+
+  .slides {
+    width: 720px;
     overflow: hidden;
   }
   
@@ -16,17 +21,17 @@
     color: #fff;
   }
   
-  .indicators {
-    display: flex;
-    justify-content: center;
+  .circle {
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #5D5FEF;
+    background: #5D5FEF13;
+    width: 16px;
+    height: 16px;
   }
-  
-  .indicators > button {
-    margin: 5px;
-  }
-  
-  .indicators > button.active {
-    background-color: black;
-    color: #fff;
+
+  .circle.active {
+    background: #5D5FEF;
   }
   

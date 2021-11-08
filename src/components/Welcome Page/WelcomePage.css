@@ -1,15 +1,30 @@
 .flex-container {
-    display: flex;
+	display: flex;
 }
 
 .flex-child {
-    flex: 1;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+	flex: 1;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }  
 
 .flex-child:first-child {
-    margin-right: 20px;
-} 
+	margin-right: 20px;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.workbook {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 4px 0;
+}
+
+.student {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 8px 0;
+}

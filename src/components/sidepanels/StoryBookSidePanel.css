@@ -1,12 +1,6 @@
 .StoryBookSidePanel {
-  max-width: 330px;
+  width: 350px;
+  padding: 0 16px;
   height: 100%;
-}
-
-.StoryBookSidePanel-header {
-  display: inline-flex;
-}
-
-.StoryBookSidePanel-headerItem {
-  padding: 20px 25px;
+  background: #F7F7FE;
 }

@@ -3,70 +3,62 @@ import { MessagingServiceContext } from "../../App";
 
 import "./Storybook.css";
 
-export const CarouselItem = ({ children, width }) => {
-  return (
-    <div className="carousel-style" style={{ width: width }}>
-      {children}
-    </div>
-  );
+export const CarouselItem = ({ children }) => {
+	return (
+		<div className="carousel-style">
+			{children}
+		</div>
+	);
 };
 
-const Storybook = ({ children }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const messagingService = useContext(MessagingServiceContext);
+const Storybook = ({ slides }) => {
+	const [activeIndex, setActiveIndex] = useState(0);
+	const messagingService = useContext(MessagingServiceContext);
 
-  const updateIndex = (newIndex) => {
-    if (newIndex < 0) {
-      newIndex = React.Children.count(children) - 1;
-    } else if (newIndex >= React.Children.count(children)) {
-      newIndex = 0;
-    }
+	const updateIndex = (newIndex) => {
+		if (newIndex < 0) {
+			newIndex = slides.length - 1;
+		} else if (newIndex >= slides.length) {
+			newIndex = 0;
+		}
 
-    messagingService.publishMessage("workbook/slides", newIndex);
+		messagingService.publishMessage("workbook/slides", newIndex);
 
-    setActiveIndex(newIndex);
-  };
+		setActiveIndex(newIndex);
+	};
 
-  return (
-    <div className="carousel">
-      <div
-        className="inner"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-      >
-        {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { width: "100%" });
-        })}
-      </div>
-      <div className="indicators">
-        <button
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-        >
-          Prev
-        </button>
-        {React.Children.map(children, (child, index) => {
-          return (
-            <button
-              className={`${index === activeIndex ? "active" : ""}`}
-              onClick={() => {
-                updateIndex(index);
-              }}
-            >
-              {index + 1}
-            </button>
-          );
-        })}
-        <button
-          onClick={() => {
-            updateIndex(activeIndex + 1);
-          }}
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  );
+	return (
+		<div className="flex-column center">
+			<div className="slides">
+				<div className="inner" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+					{slides.map(s => <CarouselItem><img src={s} alt="slide"></img></CarouselItem>)}
+				</div>
+			</div>
+			<div className="flex-row center">
+				<button onClick={() => updateIndex(activeIndex - 1)}>Prev</button>
+				{slides.map((_, index) => {
+					return (
+						<section>
+							<div
+								className={`${index === activeIndex ? "active circle" : "circle"}`}
+								onClick={() => {
+									updateIndex(index);
+								}}
+							>
+							</div>
+						</section>
+					);
+				})}
+				<button
+					onClick={() => {
+						updateIndex(activeIndex + 1);
+					}}
+				>
+					Next
+				</button>
+			</div>
+		</div>
+	);
 };
 
 export default Storybook;

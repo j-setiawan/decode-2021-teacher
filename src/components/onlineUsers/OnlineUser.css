@@ -9,7 +9,3 @@
   display: inline-block;
 }
 
-.scrollingComponent {
-  max-height: 200px;
-  overflow-y: scroll;
-}

@@ -1,31 +1,38 @@
 .loginFormContainer {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: 0 36%;
-  /* margin-top: 30vh; */
+	width: min(90vw, 430px);
+	margin: auto;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -60%);
+	height: 100%;
 }
 
 .inputHeading {
-  margin-bottom: 5px;
-  text-align: left;
+	margin-bottom: 5px;
+	text-align: left;
 }
 
 .loginButton {
-  margin-top: 20px;
-  height: 42px;
-  width: 423px;
-  border-radius: 4px;
-  background: #5d5fef;
-  color: white;
+	margin-top: 20px;
+	width: 100%;
 }
 
-.loginInput {
-  height: 41px;
-  width: 421px;
-  border-radius: 4px;
+label {
+	color: black;
+}
+
+footer {
+	position: fixed;
+	left: 50%;
+	bottom: 32px;
+	transform: translateX(-50%);
+}
+
+footer div {
+	display: inline;
 }
 
 .schoolName {
-  margin: 0 auto;
+	margin: 0 auto;
 }

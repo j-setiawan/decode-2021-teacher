@@ -1,34 +1,24 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Storybook, { CarouselItem } from "./Storybook";
+import Storybook from "./Storybook";
 import StoryBookSidePanel from "../sidepanels/StoryBookSidePanel";
-import styled from "styled-components";
 import "./StorybookContainer.css";
 
-const ViewerImg = styled.img`
-  max-height: 100%;
-  max-width: 100%;
-`;
+const slides = [
+  "/Slide1.png", "/Slide2.png", "/Slide3.png", "/Slide4.png"
+]
 
 const StoryBookContainer = (props) => {
   const name = props.name;
   console.log(name);
   return (
-    <div className="StoryBookContainer">
-      <Storybook>
-        <CarouselItem>
-          <ViewerImg className="slide-image" src={`/Slide1.png`} alt="" />
-        </CarouselItem>
-        <CarouselItem>
-          <ViewerImg className="slide-image" src={`/Slide2.png`} alt="" />
-        </CarouselItem>
-        <CarouselItem>
-          <ViewerImg className="slide-image" src={`/Slide3.png`} alt="" />
-        </CarouselItem>
-        <CarouselItem>
-          <ViewerImg className="slide-image" src={`/Slide4.png`} alt="" />
-        </CarouselItem>
-      </Storybook>
+    <div className="StoryBookContainer flex-row">
+      <div className="m32 flex flex-column">
+        <h1>Workbook Selected: Dinosaurs</h1>
+        <section className="flex">
+          <Storybook slides={slides}>
+          </Storybook>
+        </section>
+      </div>
       <StoryBookSidePanel />
     </div>
   );

@@ -4,22 +4,19 @@ import OnlineUsers from "../onlineUsers/OnlineUser";
 import PollView from "../poll-view/PollView";
 import "./StoryBookSidePanel.css";
 const StoryBookSidePanel = (props) => {
-  const students = {
-    totalStudentsHappy: 1,
-    totalStudentsNeutral: 15,
-    totalStudentsSad: 23,
-  };
-  return (
-    <div className="StoryBookSidePanel">
-      <div className="StoryBookSidePanel-header">
-        <div className="StoryBookSidePanel-headerItem">Activity</div>
-        <div className="StoryBookSidePanel-headerItem">Messages</div>
-        <div className="StoryBookSidePanel-headerItem">Review</div>
-      </div>
-      <Emotions students={students} />
-      <OnlineUsers></OnlineUsers>
-      <PollView></PollView>
-    </div>
-  );
+	return (
+		<div className="StoryBookSidePanel flex-column">
+			<div className="flex-row m32 center">
+				<div className="flex">Activity</div>
+				<div className="flex">Messages</div>
+				<div className="flex">Review</div>
+			</div>
+			<Emotions/>
+			<section className="flex vertical-scroll">
+				<OnlineUsers></OnlineUsers>
+			</section>
+			<PollView></PollView>
+		</div>
+	);
 };
 export default StoryBookSidePanel;
